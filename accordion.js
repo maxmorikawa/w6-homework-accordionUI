@@ -1,18 +1,23 @@
 (() => {
 
-const $elm = document.querySelector("#js-accordion");
-const $trigger = $elm.getElementsByTagName('a');
+class Accordion {
+    //初期化
+    constructor(obj){
+        console.log(obj);
+        const $elm = document.querySelector(obj.hookName);
+const $trigger = $elm.getElementsByTagName(obj.tagName);
 
 
 const triggerLen = $trigger.length;
 let index = 0;
 while (index < triggerLen) {
-    $trigger[index].addEventListener('click', (e) => clickHandler(e));
+    $trigger[index].addEventListener('click', (e) => this.clickHandler(e));
     index++;
 }
+    }
 
-//クリックしたら実行される処理
-const clickHandler = (e) => {
+    //クリックしたら実行される処理
+    clickHandler(e) {
     e.preventDefault();
 
     const $target = e.currentTarget;
@@ -24,4 +29,12 @@ const clickHandler = (e) => {
         $content.style.display = 'block';
     }
 }
+}
+
+const fuckingAccordion = new Accordion({
+    hookName: '#js-faq',
+    tagName: 'p'
+});
+
+
 })();
