@@ -35,6 +35,13 @@ const fuckingAccordion = new Accordion({
     hookName: '#js-faq',
     tagName: 'p'
 });
-
+const dummyAccordion = new Accordion({
+    hookName: '#js-accordion',
+    tagName: 'a'
+});
+const miniAccordion = new Accordion({
+    hookName: '#js-accordion-min',
+    tagName: 'dt'
+});
 
 })();
